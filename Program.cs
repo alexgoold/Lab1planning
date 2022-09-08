@@ -71,8 +71,8 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Enter a string");
-            //string input = Console.ReadLine();
-            string input = "29535123p48723487597645723645";
+            string input = Console.ReadLine();
+            //string input = "29535123p48723487597645723645";
             string leadString = "";
             string foundNumber ="";
             string remainingString = "";
@@ -106,10 +106,8 @@
                         }
                     }
                 }
-
             }
             Console.Write($"Total = {numbers.Sum()}");
-            
         }
     }
 }
