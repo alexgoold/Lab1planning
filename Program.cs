@@ -71,34 +71,36 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Enter a string");
-            string Input = Console.ReadLine();
-            //string input = "29535123p48723487597645723645";
+            //string input = Console.ReadLine();
+            string input = "29535123p48723487597645723645";
             string leadString = "";
             string foundNumber ="";
             string remainingString = "";
             int numberLength=0;
-
-
-            for (int i = 0; i < Input.Length; i++)
+            double num;
+            List<double> numbers = new List<double>();
+            for (int i = 0; i < input.Length; i++)
             {
-                if (char.IsDigit(Input[i]))
+                if (char.IsDigit(input[i]))
                 {
-                    for (int k = i+1; k < Input.Length; k++)
+                    for (int k = i+1; k < input.Length; k++)
                     {
-                        if (Input[k] == Input[i])
+                        if (input[k] == input[i])
                         {
                             numberLength = k - i;
-                            foundNumber =Input.Substring(i,numberLength+1);
-                            leadString = Input.Substring(0, i);
+                            foundNumber =input.Substring(i,numberLength+1);
+                            double.TryParse(foundNumber, out num);
+                            numbers.Add(num);
+                            leadString = input.Substring(0, i);
                             Console.Write(leadString);
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.Write(foundNumber);
                             Console.ResetColor();
-                            remainingString =Input.Substring(k+1);
+                            remainingString =input.Substring(k+1);
                             Console.Write(remainingString+"\n");
                             break;
                         }
-                        else if (!char.IsDigit(Input[k]))
+                        else if (!char.IsDigit(input[k]))
                         {
                             break;
                         }
@@ -106,6 +108,8 @@
                 }
 
             }
+            Console.Write($"Total = {numbers.Sum()}");
+            
         }
     }
 }
