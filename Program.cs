@@ -72,11 +72,12 @@
         {
             Console.WriteLine("Enter a string");
             string input = Console.ReadLine();
+            Console.WriteLine();
             //string input = "29535123p48723487597645723645";
-            string leadString = "";
-            string foundNumber ="";
-            string remainingString = "";
-            int numberLength=0;
+            string leadString;
+            string foundNumber;
+            string remainingString;
+            int numberLength;
             double num;
             List<double> numbers = new List<double>();
             for (int i = 0; i < input.Length; i++)
